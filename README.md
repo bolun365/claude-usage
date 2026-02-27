@@ -44,7 +44,7 @@ Then it:
 ## 🖥 Example Output
 
 pricing: live (litellm)
-
+```
 === Monthly ===
 
 Month             Input        $     Output        $    CacheRd        $    CacheCr        $      Total   $Total  Model
@@ -99,7 +99,7 @@ Sum                125K   $0.568       800K    $16.2       349M     $147      18
                                                                                                                   claude-sonnet 9%
                                                                                                                   claude-sonnet 30%
 
-------------------------------------------------------------------------
+```
 
 ## 🚀 Installation
 
