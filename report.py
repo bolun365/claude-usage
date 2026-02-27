@@ -195,12 +195,20 @@ def short_model(name):
 def model_lines(model_data, total):
     if total == 0:
         return []
+    # 按 short_model 合并后再算占比，避免同一系列多行
+    by_short = defaultdict(new_bucket)
+    for model, data in model_data.items():
+        short = short_model(model)
+        for k in data:
+            by_short[short][k] += data[k]
     lines = []
-    for model in sorted(model_data.keys()):
-        v   = model_data[model]
-        t   = v["input"] + v["output"] + v["cache_read"] + v["cache_create"]
+    for short in sorted(by_short.keys()):
+        if "synthetic" in short.lower():
+            continue
+        v = by_short[short]
+        t = v["input"] + v["output"] + v["cache_read"] + v["cache_create"]
         pct = t / total * 100
-        lines.append(f"{short_model(model)} {pct:.0f}%")
+        lines.append(f"{short} {pct:.0f}%")
     return lines
 
 
