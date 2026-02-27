@@ -124,10 +124,6 @@ python report.py
 
 1.  Attempts to fetch latest pricing from LiteLLM.
 2.  Cached locally at:
-
-```{=html}
-<!-- -->
-```
     ~/.claude/claude_pricing_cache.json
 
 3.  Falls back to hardcoded pricing if:
